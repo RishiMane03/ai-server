@@ -190,7 +190,7 @@ app.get('/logout', (req, res) => {
 });
 
 // DashBoard
-app.get('/dashboards', isAuth, async (req, res) => {
+app.get('/dashboards', async (req, res) => {
     console.log('dashboard api started')
     res.send({
         tokenVerify : true
