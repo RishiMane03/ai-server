@@ -37,7 +37,7 @@ const PORT = process.env.PORT || 7000;
 
 // Middleware
 app.use(cors({
-    origin : [`${process.env.BACKEND_URL}`],
+    origin : [`http://localhost:3000`],
     credentials : true
 }))
 app.use(bodyParser.urlencoded({ extended: true }));
