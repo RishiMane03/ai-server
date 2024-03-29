@@ -1,0 +1,3 @@
+Authentication
+    - Email verification
+    - JWT (json web token)
