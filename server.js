@@ -156,7 +156,7 @@ app.post('/signIn', async (req, res) => {
         });
           
         //cookie with expiry of 10 minutes
-        res.cookie('accessToken', accessToken, { maxAge: 600000, sameSite: true, secure: true }); 
+        res.cookie('accessToken', accessToken, { maxAge: 600000, sameSite: 'None', secure: true }); 
 
         // find the userData from database
         const userDataObj = await userModel.find({ name })
