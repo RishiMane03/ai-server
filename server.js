@@ -37,7 +37,7 @@ const PORT = process.env.PORT || 7000;
 
 // Middleware
 app.use(cors({
-    origin : [`http://localhost:3000`],
+    origin : [`${process.env.BACKEND_URL}`],
     credentials : true
 }))
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -127,8 +127,7 @@ app.post('/signIn', async (req, res) => {
 
     // find user in database
     try {
-         
-        let userDb = await userModel.findOne({ username: name });
+         let userDb = await userModel.findOne({ username: name });
 
         console.log('userDb > ',userDb);
         // no user found
@@ -190,7 +189,7 @@ app.get('/logout', (req, res) => {
 });
 
 // DashBoard
-app.get('/dashboards', async (req, res) => {
+app.get('/dashboards', isAuth, async (req, res) => {
     console.log('dashboard api started')
     res.send({
         tokenVerify : true
